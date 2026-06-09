@@ -1,0 +1,241 @@
+
+/* =========================
+   GLOBAL RESET
+========================= */
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Inter, Arial, sans-serif;
+}
+
+/* =========================
+   BODY BASE
+========================= */
+
+body {
+  background: #05070d;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* =========================
+   PAGE WRAPPER (FULL SCREEN FIX)
+========================= */
+
+.page {
+  min-height: 100vh;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  background:
+    linear-gradient(rgba(0,0,0,0.78), rgba(0,0,0,0.92)),
+    url("https://images.prismic.io/formula-1-dashboard/Z5oiDJbqstJ99_UK_dashboard-background.png?auto=format,compress");
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 60px;
+
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.logo {
+  font-weight: 800;
+  color: #ff1e1e;
+  font-size: 18px;
+}
+
+.navbar nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.navbar a {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.navbar a:hover {
+  color: white;
+}
+
+.navbar a.active {
+  color: white;
+}
+
+.navbar button {
+  background: #ff1e1e;
+  border: none;
+  padding: 8px 16px;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero {
+  min-height: 70vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  padding: 40px;
+}
+
+.hero-content {
+  max-width: 750px;
+}
+
+.tag {
+  font-size: 14px;
+  color: #aaa;
+}
+
+.hero h1 {
+  font-size: 52px;
+  margin: 15px 0;
+}
+
+.sub {
+  color: #bbb;
+  font-size: 16px;
+  margin-bottom: 25px;
+}
+
+.cta {
+  background: #ff1e1e;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* =========================
+   SECTIONS GENERAL
+========================= */
+
+.summary,
+.features {
+  padding: 60px;
+  color: white; /* 🔥 FIX VISIBILITY */
+}
+
+/* =========================
+   GRID FOR KPI
+========================= */
+
+.summary .grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+/* =========================
+   CARDS (FIXED VISIBILITY)
+========================= */
+
+.card {
+  background: rgba(15, 15, 15, 0.65);
+  border: 1px solid rgba(255,255,255,0.12);
+
+  padding: 20px;
+  border-radius: 14px;
+
+  backdrop-filter: blur(14px);
+
+  color: white;  /* 🔥 FIX */
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 30, 30, 0.6);
+}
+
+.card h3 {
+  margin-top: 10px;
+  font-size: 22px;
+  color: white;
+}
+
+/* =========================
+   DRIVER STANDINGS
+========================= */
+
+.standings {
+  max-width: 800px;
+  margin-top: 20px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 14px;
+  margin-bottom: 10px;
+
+  background: rgba(15, 15, 15, 0.6);
+  border-radius: 12px;
+
+  border: 1px solid rgba(255,255,255,0.12);
+
+  color: white;
+}
+
+.row span {
+  color: white;
+}
+
+/* =========================
+   SMALL POLISH
+========================= */
+
+.navbar,
+.hero,
+.summary,
+.features {
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 30, 30, 0.5);
+  border-radius: 10px;
+}
