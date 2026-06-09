@@ -6,6 +6,7 @@ import com.f1.model.Driver;
 import com.f1.service.DriverService;
 import org.springframework.web.bind.annotation.*;
 import com.f1.dto.DriverStats;
+import com.f1.dto.TeamChampionshipStanding;
 
 import java.util.List;
 
@@ -57,5 +58,9 @@ public class DriverController {
 
     @PathVariable Long id) {
     return driverService.getDriverStats(id);
+}
+@GetMapping("/championship/teams")
+public List<TeamChampionshipStanding> championshipTeams() {
+    return driverService.getChampionshipTeamStandings();
 }
 }

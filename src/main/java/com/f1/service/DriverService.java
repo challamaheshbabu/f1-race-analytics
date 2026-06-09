@@ -8,6 +8,7 @@ import com.f1.repository.DriverRepository;
 import com.f1.repository.RaceResultRepository;
 import org.springframework.stereotype.Service;
 import com.f1.dto.DriverStats;
+import com.f1.dto.TeamChampionshipStanding;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -129,5 +130,39 @@ public class DriverService {
             wins,
             podiums
     );
+}
+
+public List<TeamChampionshipStanding> getChampionshipTeamStandings() {
+
+    Map<String, Integer> teamPoints = new HashMap<>();
+
+    for (RaceResult result : resultRepo.findAll()) {
+
+        Driver driver = driverRepo
+                .findById(result.getDriverId())
+                .orElse(null);
+
+        if (driver == null) {
+            continue;
+        }
+
+        teamPoints.merge(
+                driver.getTeam(),
+                result.getPoints(),
+                Integer::sum
+        );
+    }
+
+    return teamPoints.entrySet()
+            .stream()
+            .map(entry -> new TeamChampionshipStanding(
+                    entry.getKey(),
+                    entry.getValue()
+            ))
+            .sorted((a, b) ->
+                    Integer.compare(
+                            b.getPoints(),
+                            a.getPoints()))
+            .toList();
 }
 }
